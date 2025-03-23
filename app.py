@@ -102,7 +102,7 @@ contacts_df.drop(columns=['name'], inplace=True)
 print(contacts_df)
 
 # Reorder columns to contact_id, first_name, last_name, email
-contacts_df = contacts_df[['contact_id', 'first_name', 'last_name', 'email']]
+contacts_df = contacts_df[column_names]
 print(contacts_df)
 
 
