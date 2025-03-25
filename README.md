@@ -25,46 +25,46 @@ pip install -r requirements.txt
 
 ```mermaid
 erDiagram
+    CATEGORY ||--o{ SUBCATEGORY : has
+    CONTACT ||--o{ CAMPAIGN : manages
+    CATEGORY ||--o{ CAMPAIGN : relates
+    SUBCATEGORY ||--o{ CAMPAIGN : relates
 
-    contacts ||--o{ campaigns: has
-    categories ||--o{ campaigns: has    
-    subcategories ||--o{ campaigns: has
-
-    categories {
-        string category_id
+    
+    CATEGORY {
+        string category_id PK
         string category
     }
-
-    subcategories {
-        string subcategory_id
-        string subcategory
+    
+    SUBCATEGORY {
+        string subcategory_id PK
+        string subcategory UK
     }
-
-    contacts {
-        int contact_id
+    
+    CONTACT {
+        int contact_id PK
         string first_name
         string last_name
-        string email
+        string email UK
     }
-
-    campaigns {
-        int campaign_id
-        int contact_id
+    
+    CAMPAIGN {
+        int campaign_id PK
+        int contact_id FK
         string company_name
-        string description
-        float goal
-        float pledged
+        text description
+        decimal goal
+        decimal pledged
         string outcome
         int backers_count
         string country
         string currency
         date launch_date
         date end_date
-        string category
-        string subcategory
-        string category_id
-        string subcategory_id
+        string category_id FK
+        string subcategory_id FK
     }
+
 ```
 
 ## Usage
