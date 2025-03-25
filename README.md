@@ -18,6 +18,11 @@ To install the required dependencies, run:
 pip install -r requirements.txt
 ```
 
+## ER Diagram
+
+- [PNG](images/er-diagram.png)
+
+
 ```mermaid
 erDiagram
 
@@ -53,7 +58,12 @@ erDiagram
         int backers_count
         string country
         string currency
-        
+        date launch_date
+        date end_date
+        string category
+        string subcategory
+        string category_id
+        string subcategory_id
     }
 ```
 
