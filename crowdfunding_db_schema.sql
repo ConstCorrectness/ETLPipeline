@@ -58,11 +58,16 @@ CREATE TABLE campaigns (
 
 
 -- Import CSV files into DB
-\copy categories(category_id, category) FROM 'c:/Users/Horrible/Desktop/ClassWork/ETLPipeline/Resources/category.csv' DELIMITER ',' CSV HEADER;
-\copy subcategories(subcategory_id, subcategory) FROM 'c:/Users/Horrible/Desktop/ClassWork/ETLPipeline/Resources/subcategory.csv' DELIMITER ',' CSV HEADER;
-\copy contacts(contact_id, first_name, last_name, email) FROM 'c:/Users/Horrible/Desktop/ClassWork/ETLPipeline/Resources/contacts.csv' DELIMITER ',' CSV HEADER;
+\copy categories(category_id, category) FROM 'Resources/category.csv' DELIMITER ',' CSV HEADER;
+\copy subcategories(subcategory_id, subcategory) FROM 'Resources/subcategory.csv' DELIMITER ',' CSV HEADER;
+\copy contacts(contact_id, first_name, last_name, email) FROM 'Resources/contacts.csv' DELIMITER ',' CSV HEADER;
 \copy campaigns(campaign_id, contact_id, company_name, description , goal, pledged, outcome, backers_count, country, currency, launch_date, end_date, category, subcategory, category_id, subcategory_id) FROM 'c:/Users/Horrible/Desktop/ClassWork/ETLPipeline/Resources/campaign.csv' DELIMITER ',' CSV HEADER;
 
+-- Export Tables to CSV
 
+\copy categories TO 'generated/categories_generated.csv' DELIMITER ',' CSV HEADER;
+\copy subcategories TO 'generated/subcategories_generated.csv' DELIMITER ',' CSV HEADER;
+\copy contacts TO 'generated/contacts_geneated.csv' DELIMITER ',' CSV HEADER;
+\copy campaigns to 'generated/campaigns_generated.csv' DELIMITER ',' CSV HEADER;
 
 -- psql -U postgres -d crowdfunding_db -f crowdfunding_db_schema.sql
