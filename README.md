@@ -6,12 +6,9 @@
 ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
 ![LICENSE](https://img.shields.io/badge/GPL--3.0-red?style=for-the-badge)
 
-
 ## Overview
 
 This project implements an ETL (Extract, Transform, Load) pipeline for crowdfunding data. The pipeline extracts data from various sources, transforms it into a suitable format, and loads it into a database for further analysis.
-
-
 
 ## Installation
 
@@ -19,6 +16,45 @@ To install the required dependencies, run:
 
 ```sh
 pip install -r requirements.txt
+```
+
+```mermaid
+erDiagram
+
+    contacts ||--o{ campaigns: has
+    categories ||--o{ campaigns: has    
+    subcategories ||--o{ campaigns: has
+
+    categories {
+        string category_id
+        string category
+    }
+
+    subcategories {
+        string subcategory_id
+        string subcategory
+    }
+
+    contacts {
+        int contact_id
+        string first_name
+        string last_name
+        string email
+    }
+
+    campaigns {
+        int campaign_id
+        int contact_id
+        string company_name
+        string description
+        float goal
+        float pledged
+        string outcome
+        int backers_count
+        string country
+        string currency
+        
+    }
 ```
 
 ## Usage
